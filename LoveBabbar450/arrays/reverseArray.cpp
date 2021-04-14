@@ -32,4 +32,9 @@ void reverseArray(int *arr , int size)
 }
 /*
 Time-complexity of reverseArray() : O(n)
+Approach :-
+1 . We will declare a function with array and its size as the parameters
+2 . will start a loop and iterate till half of the index
+3 . Inside the loop , we will swap the current first element to the current last element . 
+4 . For this swapping , two variables will be used , one(i) will point current first and other(j) will point over the current last element
 */
