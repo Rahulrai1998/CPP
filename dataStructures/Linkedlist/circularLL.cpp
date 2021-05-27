@@ -12,19 +12,23 @@ class node{
 	}
 }; 
 
-void create(node**head , int n);
+void create(node**, int);
 void display(node*);
-void insertAtHead(node**head , int item);
-void insertAtTail(node**head , int item);
-int deleteHead(node**head);
-int deleteTail(node**head);
-void reverseList(node**head);
+void insertAtHead(node** , int);
+void insertAtTail(node**, int);
+int deleteHead(node**);
+int deleteTail(node**);
+void reverseList(node**);
 
 int main()
 {
 	node *head = NULL ; 
 	create(&head , 5);
-	display(head);		
+	display(head);
+	insertAtHead(&head , 98);
+	display(head);	
+	insertAtTail(&head , 100);
+	display(head);	
 	return 0 ;
 }
 void create(node**head , int n)
@@ -64,5 +68,42 @@ void display(node*head)
 	
 	}while(temp!=(head));
 	cout<<"head"<<endl ; 
+	return ; 
+}
+void insertAtHead(node**head , int val)
+{
+	if(*head==NULL)
+	{
+		cout << "List is Empty" << endl ;
+		return ;  
+	}
+	node *newnode , *temp ; 
+	newnode = new node(val);
+	 temp = (*head);
+	while(temp->next != (*head))
+	{
+		temp = temp->next ; 
+	}
+	temp->next = newnode ; 
+	newnode->next = (*head) ;
+	(*head) = newnode ; 
+	return ; 
+}
+void insertAtTail(node**head , int item)
+{
+	if(*head == NULL)
+	{
+		cout << "List is empty" <<endl ; 
+		return ; 
+	}
+	node *newnode , *temp ; 
+	newnode = new node(item);
+	temp = (*head);
+	while(temp->next!=(*head))
+	{
+		temp = temp->next ; 
+	}
+	temp->next = newnode ; 
+	newnode->next = (*head) ; 
 	return ; 
 }
