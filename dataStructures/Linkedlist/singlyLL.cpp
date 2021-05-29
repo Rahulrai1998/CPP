@@ -1,3 +1,5 @@
+//Singly Linked list
+
 #include <iostream>
 using namespace std;
 class node

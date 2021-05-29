@@ -47,6 +47,8 @@ int main()
 	 display(head) ; 
 	insertAtPosition(&head , 321 , 2);
 	display(head);
+	reverse(&head);
+	display(head);
 	return 0 ;
 }
 void create(node**head , int n)
@@ -258,16 +260,24 @@ void insertAtPosition(node**head , int item , int pos)
 	}
 	return ; 
 }
-void reverse()
+void reverse(node**head)
 {
-	if(*head==NULL)
+	if(*head==NULL || (*head)->next == (*head))
 	{
-		cout <<"List is empty"<<endl ;
+		cout <<"List is empty or it has only a single node"<<endl ;
 		return ;  
 	}
-	
-
-
-
+	node *pre , *curr , *nex ; 
+	pre = NULL ; 
+	curr = (*head) ; 
+	do
+	{
+		nex = curr->next ; 
+		curr->next = pre ; 
+		pre = curr ; 
+		curr = nex;
+	}while(curr != (*head));
+	(*head) -> next = pre ; 
+	(*head) = pre ; 
 	return ;
 }
