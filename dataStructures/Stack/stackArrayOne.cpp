@@ -5,8 +5,8 @@ using namespace std ;
 #define MAX 5
 
 class stack{
-	 public:
 	int top ;
+	public:
 	int arr[MAX];
 	stack(){top=-1;}
 };
@@ -32,8 +32,8 @@ int main()
 	if(item!=-9999) cout << item << endl;
 	return 0;
 }
-bool isEmpty(stack *p) return (p->top == -1) ;
-bool isFull(stack *p) return (p->top == MAX - 1); 
+bool isEmpty(stack *p) {return (p->top == -1)} ;
+bool isFull(stack *p) {return (p->top == MAX - 1)}; 
 void push(stack *p , int item)
 {
 	if(isFull(p))
