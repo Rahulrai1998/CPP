@@ -9,17 +9,18 @@ Fundamentals(Functional and recursive) :-
 	7 . (m^n) exponent 
 	8 . Patterns making*
 	9 . Matrix sum and product
-	10 . Armstrong number and Strong number
+	10 . Armstrong number , Strong number and Ramanujan number
 	11 . leap year
 	12 . Sum of series
 	13 . Root of a quadratic equation
 	14 . Base conversion (Binary to decimal / decimal to binary)
 	15 . Palindrome Check
-	16 . Factorials
+	16 . Factorials and Sum of Factorial-Series 
 	17 . Gregorian Calender (find day at 1st Jan of an Year)
+	18 . Prime Factors
 Good level :-
 	1 . Hanoii Tower
-	2 . Prefix-Postfix
+	2 . Prefix-Infix-Postfix
 	3 . Polynomial sum/product
 	4 . 9 queens
 
