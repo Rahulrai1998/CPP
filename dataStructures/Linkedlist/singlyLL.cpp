@@ -168,6 +168,7 @@ int main()
 			break;
 		case 5:
 			newNode = reverseRecursive(head);
+			head = newNode ; 
 			break;
 		case 6:
 			cout << search(head, 1) << endl;

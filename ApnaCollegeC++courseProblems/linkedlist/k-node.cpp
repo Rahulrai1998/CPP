@@ -2,7 +2,6 @@
 
 #include<iostream>
 using namespace std ; 
-
 class node{
 	public:
 	int data ; 
@@ -12,7 +11,6 @@ class node{
 		next = NULL ; 
 	}
 };
-
 void create(node**head , int n)
 {
 	if(*head != NULL)

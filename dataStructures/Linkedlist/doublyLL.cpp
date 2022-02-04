@@ -158,8 +158,10 @@ void insertAtPosition(node**head , int item , int pos)
 	else
 	{
 		newnode->next = loc->next;
+		newnode->next->prev = newnode; 
 		newnode->prev = loc ;
 		loc->next = newnode ; 
+		
 	}
 	return;
 }
