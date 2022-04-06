@@ -19,17 +19,15 @@ int top(Stack *);
 
 int main()
 {
-	Stack *st = new Stack(); 
-	int item ; 
-	push(st , 45);
-	push(st , 40);
-	push(st , 46);
-	push(st , 47);
-	push(st , 48);
-	cout<<top(st)<<endl;
-	item = pop(st);
+	Stack st ; Stack*p;
+	p = &st  ; 
+	cout << p->tp ; 
+	/*int item ; 
+	push(p , 45);
+	cout<<top(p)<<endl;
+	item = pop(p);
 	if(item!=-9999) cout << item << endl;
-	cout<<top(st)<<endl;
+	cout<<top(p)<<endl;*/
 	return 0;
 }
 bool isEmpty(Stack *p) {return (p->tp == -1);} 

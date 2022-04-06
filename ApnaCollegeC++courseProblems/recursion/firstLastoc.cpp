@@ -10,9 +10,9 @@ int first(int a[] , int i , int key , int n)
 }
 int last(int a[] , int i , int key , int n)
 {
-	if(i==n) return -1;	/*int temp =*/ 
-	last(a , i+1 , key , n);
-	//if(temp != -1) return temp ; 
+	if(i==n) return -1;	
+	int temp = last(a , i+1 , key , n);
+	if(temp != -1) return temp ; 
 	if(a[i]==key) return i ; 
 	return -1;
 }
