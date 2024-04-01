@@ -6,26 +6,25 @@ void bubbleSort(vector<int> &, int);
 
 void bubbleOpt(vector<int> &a, int n) // Optimized technique , as if the array would be already sorted then it won't make further outer iteartion after first one
 {
-	int count = 1, i, temp, swapped;
-	while (count < n)
+	int j, i, temp;
+	for (i = 1; i < n; i++)
 	{
-		swapped = 0;
-		for (i = 0; i < n - 1; i++)
+		bool swapped = false;
+		for (j = 0; j < n - 1; j++)
 		{
-			if (a[i] > a[i + 1])
+			if (a[j] > a[j + 1])
 			{
-				temp = a[i];
-				a[i] = a[i + 1];
-				a[i + 1] = temp;
-				swapped = 1;
+				temp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = temp;
+				swapped = true;
 			}
 		}
-		if (swapped == 0)
+		if (swapped == false)
 		{
 			cout << "Already Sorted" << endl;
 			break;
 		}
-		count++;
 	}
 	return;
 }
@@ -34,10 +33,10 @@ int main()
 
 	vector<int> a = {1, 10, 8, 2, 9};
 
-	bubbleSort(a, a.size());
+	// bubbleSort(a, a.size());
+	// display(a, a.size());
+	bubbleOpt(a, a.size());
 	display(a, a.size());
-	// bubbleOpt(arr , n);
-	// display(arr , n);
 	return 0;
 }
 void display(vector<int> a, int n)
@@ -55,7 +54,7 @@ void bubbleSort(vector<int> &a, int n)
 	int j, i, temp;
 	for (i = 1; i < n; i++)
 	{
-		for (j = 0; j < n - 1; j++)
+		for (j = 0; j < n - i; j++)
 		{
 			if (a[j] > a[j + 1])
 			{
