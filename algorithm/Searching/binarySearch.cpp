@@ -9,7 +9,7 @@ int binarySearch(int *a, int s, int e, int key)
 		if (a[mid] == key)
 			return mid;
 		else if (key < a[mid])
-			e = mid - 2;
+			e = mid - 1;
 		else
 			s = mid + 1;
 	}

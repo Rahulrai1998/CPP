@@ -4,6 +4,15 @@
 
 using namespace std;
 
+void display(vector<int> a)
+{
+    for (auto i : a)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+}
+
 void selectionSort(vector<int> &a, int n) // n is the length of the array
 {
     int i, j, temp;
@@ -19,18 +28,15 @@ void selectionSort(vector<int> &a, int n) // n is the length of the array
                 a[i] = a[j];
                 a[j] = temp;
             }
+            display(a);
         }
     }
 }
-
 int main()
 {
     vector<int> a = {1, 8, 3, 0, 1};
     selectionSort(a, 5);
-    for (auto i : a)
-    {
-        cout << i << " ";
-    }
+    display(a);
 
     return 0;
 }

@@ -28,6 +28,19 @@ void bubbleOpt(vector<int> &a, int n) // Optimized technique , as if the array w
 	}
 	return;
 }
+void bubbleSortRecursive(vector<int> &a, int n)
+{
+	// BASE CASES
+	if (n == 0 or n == 1)
+		return;
+
+	for (int i = 0; i < n - 1; i++)
+	{
+		if (a[i] > a[i + 1])
+			swap(a[i], a[i + 1]);
+	}
+	bubbleSortRecursive(a, n - 1);
+}
 int main()
 {
 
@@ -35,7 +48,8 @@ int main()
 
 	// bubbleSort(a, a.size());
 	// display(a, a.size());
-	bubbleOpt(a, a.size());
+	// bubbleOpt(a, a.size());
+	bubbleSortRecursive(a, a.size());
 	display(a, a.size());
 	return 0;
 }
