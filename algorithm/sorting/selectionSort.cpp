@@ -18,7 +18,6 @@ void selectionSort(vector<int> &a, int n) // n is the length of the array
     int i, j, temp;
     for (i = 0; i < n - 1; i++)
     {
-
         for (j = i + 1; j < n; j++)
         {
             // swap(a[j] < a[i]);
