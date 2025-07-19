@@ -4,6 +4,19 @@ using namespace std;
 void display(vector<int>, int);
 void bubbleSort(vector<int> &, int);
 
+void bubbleSortSimple(vector<int> &arr, int n)
+{
+	// OUTER LOOP IS ONLY TO ITERATE
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = 0; j < n - i - 1; j++)
+		{
+			if (arr[j + 1] < arr[j])
+				swap(arr[j], arr[j + 1]);
+		}
+	}
+}
+
 void bubbleOpt(vector<int> &a, int n) // Optimized technique , as if the array would be already sorted then it won't make further outer iteartion after first one
 {
 	int j, i, temp;

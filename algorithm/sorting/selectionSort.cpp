@@ -31,6 +31,7 @@ void selectionSort(vector<int> &a, int n) // n is the length of the array
         }
     }
 }
+
 int main()
 {
     vector<int> a = {1, 8, 3, 0, 1};
