@@ -19,7 +19,7 @@ public:
         if (!stk.empty())
             cout << "Stack Underflow" << endl;
         else
-            stk.pop_back();
+            stk.pop_back() ;
     }
     int peek()
     {

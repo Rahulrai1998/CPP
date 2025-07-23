@@ -1,68 +1,84 @@
-#include<iostream>
-#define MAX 20
-using namespace std ; 
+#include <iostream>
+using namespace std;
 
-class queue{
-	public :
-	int front , back ;
-	int arr[MAX];
-	queue(){
-		front = back = -1 ; 
+class Queue
+{
+private:
+	int front, rear, size;
+	int *arr;
+
+public:
+	Queue(int s)
+	{
+		size = s;
+		front = rear = -1;
+		arr = new int[s];
+	}
+
+	void enQue(int x)
+	{
+		if (rear == size - 1)
+		{
+			cout << "OVERFLOW" << endl;
+			return;
+		}
+		arr[++(rear)] = x;
+		if (front == -1)
+		{
+			front++;
+		}
+	}
+	void deQue()
+	{
+		if (empty())
+		{
+			cout << "UNDERFLOW" << endl;
+			return;
+		}
+		if (front == rear)
+		{
+			front = rear = -1;
+		}
+
+		else
+		{
+			front++;
+			// IT WILL FILL THE EMPTY CELL AFTER DELETION
+			//
+			// for (int i = 0; i < size; i++)
+			// {
+			// 	arr[i] = arr[i + 1];
+			// }
+			// rear--;
+		}
+	}
+	int peek()
+	{
+		if (empty())
+		{
+			cout << "UNDERFLOW" << endl;
+			return -9999;
+		}
+		return arr[front];
+	}
+	bool empty()
+	{
+		if (front == -1 || (front > rear))
+			return true;
+		return false;
 	}
 };
-
-void enQue(queue* , int);
-void deQue(queue*);
-int peek(queue*);
-bool empty(queue*);
-
 int main()
 {
-	queue *q = new queue(); 
-	enQue(q,4);
-	enQue(q,6);
-	enQue(q,5);
-	enQue(q,7);
-	deQue(q);
-	cout << peek(q) <<endl;
-	deQue(q);
-	cout << peek(q) << endl ; 
-	return 0 ; 
-}
-void enQue(queue *q , int x)
-{
-	if(q->back==MAX-1)
-	{
-		cout << "OVERFLOW" <<endl ; 
-		return;
-	}
-	q->arr[++(q->back)] = x ; 
-	if(q->front == -1){q->front++;}
-}
-void deQue(queue *q )
-{
-	if(empty(q))
-	{
-		cout << "UNDERFLOW" <<endl ; 
-		return ; 
-	}
-	if(q->front == q->back)
-	{
-		q->front = q->back = -1 ; 
-	}
-	else q->front++ ; 
-}
-int peek(queue *q )
-{
-	if(empty(q))
-	{
-		cout << "UNDERFLOW" <<endl;
-		return -9999;	
-	}
-	return q->arr[q->front] ; 
-}
-bool empty(queue *q )
-{
-	if(q->front == -1 || (q->front>q->back)) return true ; 
-	return false ; 
+	Queue q(10);
+	q.enQue(4);
+	q.enQue(6);
+	q.enQue(5);
+	q.enQue(7);
+	q.deQue();
+	cout
+		<< q.peek() << endl;
+	q.deQue();
+	cout << q.peek() << endl;
+	return 0;
 }
