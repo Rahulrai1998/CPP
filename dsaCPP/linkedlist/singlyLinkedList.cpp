@@ -105,11 +105,18 @@ public:
             delete head;
             head = nullptr;
             tail = nullptr;
+            return;
         }
 
-        
+        Node *temp = head;
+        while (temp != nullptr && temp->next->data != val)
+        {
+            temp = temp->next;
+        }
 
-
+        if (temp != nullptr){
+            
+        }
     }
 
     void traverse()
