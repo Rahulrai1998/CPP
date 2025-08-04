@@ -127,14 +127,34 @@ public:
         delete temp;
     }
 
+    void reverse()
+    {
+        Node *prev = nullptr;
+        Node *cur = head;
+        Node *nxt;
+
+        tail = head; // original head becomes new tail
+
+        while (cur != nullptr)
+        {
+            nxt = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = nxt;
+        }
+
+        head = prev; // update head to new front
+    }
+
     void traverse()
     {
-        while (head != nullptr)
+        Node *temp = head;
+        while (temp != nullptr)
         {
-            cout << head->data << "->";
-            head = head->next;
+            cout << temp->data << "->";
+            temp = temp->next;
         }
-        cout << "NULL";
+        cout << "NULL" << endl;
         return;
     }
 };
@@ -149,7 +169,9 @@ int main()
     list.insertAtHead(65);
     // list.deleteTail();
     list.insertAtTail(33);
-    list.deleteByValue(23);
+    // list.deleteByValue(23);
+    list.traverse();
+    list.reverse();
     list.traverse();
     return 0;
 }
