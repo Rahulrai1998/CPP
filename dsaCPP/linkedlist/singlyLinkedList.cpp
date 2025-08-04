@@ -107,16 +107,24 @@ public:
             tail = nullptr;
             return;
         }
-
-        Node *temp = head;
-        while (temp != nullptr && temp->next->data != val)
+        Node *temp = head, *prev;
+        while (temp != nullptr && temp->data != val)
         {
+            prev = temp;
             temp = temp->next;
         }
-
-        if (temp != nullptr){
-            
+        if (temp == nullptr)
+        {
+            cout << "Node Unavailable" << endl;
         }
+        else
+        {
+            if (temp == tail)
+                tail = prev;
+            prev->next = temp->next;
+        }
+        temp->next = nullptr;
+        delete temp;
     }
 
     void traverse()
@@ -136,12 +144,12 @@ int main()
     List list;
     list.insertAtTail(5);
     list.insertAtTail(10);
-    list.deleteHead();
+    // list.deleteHead();
     list.insertAtTail(23);
     list.insertAtHead(65);
-    list.deleteTail();
+    // list.deleteTail();
     list.insertAtTail(33);
+    list.deleteByValue(23);
     list.traverse();
-
     return 0;
 }
