@@ -145,7 +145,7 @@ public:
 
         head = prev; // update head to new front
     }
-
+    
     void traverse()
     {
         Node *temp = head;
