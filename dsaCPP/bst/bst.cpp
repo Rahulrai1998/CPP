@@ -1,4 +1,4 @@
-Tree *insertNode(Tree *root, in data)
+Tree *insertNode(Tree *root, int data)
 {
     if (root == NULL)
     {
