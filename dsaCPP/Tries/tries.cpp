@@ -1,47 +1,67 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
-const int ALPHABET_SIZE = 26;
-struct TrieNode
-{
-    TrieNode *children[ALPHABET_SIZE];
-    bool isEndOfWord;
-    TrieNode()
-    {
-        isEndOfWord = false;
-        for (int i = 0; i < ALPHABET_SIZE; ++i)
-            children[i] = nullptr;
+class TrieNode{
+public:
+    TrieNode* child[26];
+    bool isEnd;
+    TrieNode(){
+        isEnd = false;
+        for(int i=0;i<26;i++){
+            child[i] = nullptr;
+        }
     }
 };
 
-void insert(const string &word)
-{
-    TrieNode *curr = root
-    for (char ch : word)
-    {
-        int index = ch - 'a';
-        if (!curr->children[index])
-            curr->children[index] = new TrieNode();
-        curr = curr->children[index];
+class Trie{
+
+public:
+    TrieNode *root;
+    
+    Trie(){
+        root = new TrieNode();
     }
-    curr->isEndOfWord = true;
-}
 
-bool search(const string &word)
-{
-    TrieNode *curr = root;
-    for (char ch : word)
-    {
-        int index = ch - 'a';
-        if (!curr->children[index])
-            return false;
-        curr = curr->children[index];
+    void insert(string word){
+        TrieNode* node = root;
+        for(char ch:word){
+            int idx = ch-'a';
+            if(node->child[idx] == nullptr)
+                node->child[idx]= new TrieNode();
+            node = node->child[idx];
+        }
+        node->isEnd = true;
     }
-    return curr->isEndOfWord;
-}
 
-int main()
-{
+    bool search(string word){
+        TrieNode* node = root;
+        for(char ch:word){
+            int idx = ch-'a';
+            if(node->child[idx] == nullptr) return false;
+            node = node->child[idx];
+        }
+        return node->isEnd;
+    }
 
+    bool startsWith(string prefix){
+        TrieNode* node = root;
+        for(char ch:prefix){
+            int idx = ch - 'a';
+            if(node->child[idx] == nullptr) return false;
+            node = node->child[idx];
+        }
+        return true;
+    }
+};
+
+
+int main(){
+
+    Trie* trie = new Trie();
+    trie->insert("Hello");
+    bool present = trie->search("ello");
+    bool prefix = trie->startsWith("el");
+
+    cout << present << " " << prefix << " ";
     return 0;
 }
